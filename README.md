@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/spieker/product_spy.png)](https://travis-ci.org/spieker/product_spy)
+
 # ProductSpy
 
 ProductSpy is made for parsing product URLs, i.e. Amazon-URLs, to get
