@@ -49,6 +49,21 @@ ProductSpy.setup do |config|
 end
 ```
 
+## Supported shops
+
+The following shops are already set up in the gem, but you are able each
+shop you want to in the configuration of your abblication or you can
+contribute new shops.
+
+* www.amazon.de
+* www.arzberg-shop.de
+* www.baby-markt.de
+* www.baby-walz.de
+* www.ebay.de
+* www.hornbach.de
+* www.lecreuset.de
+* www.porzellanhandel24.de
+
 ## Contributing
 
 1. Fork it

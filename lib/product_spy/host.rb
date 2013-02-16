@@ -24,7 +24,7 @@ module ProductSpy
 
       def get_url(pk)
         @pattern.gsub /:(\d+)/ do |i|
-          pk[i.to_i]
+          pk[i[1..-1].to_i-1]
         end
       end
     end
