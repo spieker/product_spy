@@ -32,7 +32,7 @@ ProductSpy.build('amazon.de', ['B004O9DF6O']) # => https://www.amazon.de/dp/B004
 
 # defining patterns
 ProductSpy.setup do |config|
-  config.host 'amazon.de', 'www.amazon.de' do |host|
+  config.host 'www.amazon.de', :aliases => ['amazon.de'] do |host|
     # ** Mobile
     # http://www.amazon.de/gp/aw/d/B004O9DF7I/ref=aw_d_var_2nd_sports_img?vs=1
     # http://www.amazon.de/gp/aw/B000K7BELW/ref=aw_imgblk_0?h=356&ie=UTF8&selIdx=0&tag=viddleit-21&w=320
