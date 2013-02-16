@@ -8,10 +8,16 @@ module ProductSpy
       @hosts = {}
     end
 
-    def host(*hosts, &block)
-      hosts.each do |host|
-        host_inst = Host.new(host)
-        yield host_inst
+    def host(host, options = {}, &block)
+      host_inst = Host.new(host)
+      yield host_inst
+      @hosts[host.to_sym] = host_inst
+
+      options = {
+        :aliases => []
+      }.merge(options)
+
+      options[:aliases].each do |host|
         @hosts[host.to_sym] = host_inst
       end
     end

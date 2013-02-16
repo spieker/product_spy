@@ -6,7 +6,7 @@ describe ProductSpy, 'amazon' do
       host.should == 'www.amazon.de'
       pk.should == ['B000K7BELW']
     end
-    
+
     it 'parses: https://www.amazon.de/dp/B000K7BELW/' do
       host, pk = ProductSpy.parse('https://www.amazon.de/dp/B000K7BELW/')
       host.should == 'www.amazon.de'
@@ -30,9 +30,25 @@ describe ProductSpy, 'amazon' do
     it 'returns: https://www.amazon.de/dp/B000K7BELW' do
       ProductSpy.build('www.amazon.de', ['B000K7BELW']).should == 'https://www.amazon.de/dp/B000K7BELW'
     end
-    
+
     it 'returns: https://www.amazon.de/gp/aw/d/B000K7BELW' do
       ProductSpy.build('www.amazon.de', ['B000K7BELW'], :type => 'mobile').should == 'https://www.amazon.de/gp/aw/d/B000K7BELW'
+    end
+  end
+
+  context 'aliases' do
+    context 'parse url' do
+      it 'parses: https://amazon.de/dp/B000K7BELW' do
+        host, pk = ProductSpy.parse('https://www.amazon.de/dp/B000K7BELW')
+        host.should == 'www.amazon.de'
+        pk.should == ['B000K7BELW']
+      end
+    end
+
+    context 'build url' do
+      it 'returns: https://www.amazon.de/dp/B000K7BELW' do
+        ProductSpy.build('amazon.de', ['B000K7BELW']).should == 'https://www.amazon.de/dp/B000K7BELW'
+      end
     end
   end
 end
