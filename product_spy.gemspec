@@ -8,9 +8,9 @@ Gem::Specification.new do |gem|
   gem.version       = ProductSpy::VERSION
   gem.authors       = ["Paul Spieker"]
   gem.email         = ["p.spieker@duenos.de"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
-  gem.homepage      = ""
+  gem.description   = %q{ProductSpy is made for parsing product URLs, i.e. Amazon-URLs, to get the product keys and creating product URLs based on these keys. This can be used to identify products based on the url or just to clean up product URLs.}
+  gem.summary       = %q{ProductSpy is made for parsing product URLs, i.e. Amazon-URLs, to get the product keys and creating product URLs based on these keys}
+  gem.homepage      = "https://github.com/spieker/product_spy"
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
