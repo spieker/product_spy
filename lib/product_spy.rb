@@ -93,6 +93,7 @@ module ProductSpy
     uri = Addressable::URI.parse(url)
     host = Configuration.instance.hosts[uri.host.downcase.to_sym] unless uri.nil? or uri.host.nil?
     return nil if host.nil?
-    [host.host_name.downcase, host.make_pk(url)]
+    return nil if (pk = host.make_pk(url)).nil?
+    [host.host_name.downcase, pk]
   end
 end

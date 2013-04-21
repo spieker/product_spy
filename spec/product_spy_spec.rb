@@ -5,6 +5,10 @@ describe ProductSpy do
       ProductSpy.parse('http://no.host/whatever').should be_nil
     end
 
+    it "returns nil if no parser matches the url" do
+      ProductSpy.parse('http://amazon.de/whatever').should be_nil
+    end
+
     it "returns nil if no url is given" do
       ProductSpy.parse('').should be_nil
       ProductSpy.parse(nil).should be_nil
