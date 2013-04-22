@@ -18,13 +18,18 @@ module ProductSpy
     end
 
     class Builder
-      def initialize(pattern)
+      def initialize(pattern, &block)
         @pattern = pattern
+        @block   = block
       end
 
       def get_url(pk)
-        @pattern.gsub /:(\d+)/ do |i|
-          pk[i[1..-1].to_i-1]
+        if @block.respond_to?(:call)
+          @block.call(pk)
+        else
+          @pattern.gsub /:(\d+)/ do |i|
+            pk[i[1..-1].to_i-1]
+          end
         end
       end
     end
@@ -41,8 +46,9 @@ module ProductSpy
       @parser << Parser.new(regex, pk_keys)
     end
 
-    def build(type, pattern)
-      @builder[type.to_sym] = Builder.new(pattern)
+    def build(type, pattern = nil, &block)
+      raise "No pattern and no block given" if pattern.nil? and not block_given?
+      @builder[type.to_sym] = Builder.new(pattern, &block)
     end
 
     def make_url(pk, options)
