@@ -32,7 +32,7 @@ module ProductSpy
       # http://www.ebay.de/itm/(390542152250)
       # http://www.ebay.de/itm/Inspirierende-Ferienhauser-/(390542152250)?pt=Sach_Fachb%C3%BCcher&hash=item5aee20523a#ht_500wt_948
       host.parse /^http[s]{0,1}:\/\/(www.|)ebay\.de\/itm(\/.+?|)\/(\d+)/, [3]
-      host.build :default, 'https://www.ebay.de/itm/:1'
+      host.build :default, 'http://www.ebay.de/itm/:1'
     end
 
     config.host 'www.arzberg-shop.de', :aliases => ['arzberg-shop.de'] do |host|
