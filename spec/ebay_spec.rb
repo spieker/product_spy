@@ -22,7 +22,7 @@ describe ProductSpy, 'ebay' do
 
   context 'build url' do
     it 'returns: https://www.ebay.de/itm/390542152250' do
-      ProductSpy.build('www.ebay.de', ['390542152250']).should == 'https://www.ebay.de/itm/390542152250'
+      ProductSpy.build('www.ebay.de', ['390542152250']).should == 'http://www.ebay.de/itm/390542152250'
     end
   end
 end
